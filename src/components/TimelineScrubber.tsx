@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Play, 
   Pause, 
   SkipBack, 
   SkipForward, 
-  MapPin,
-  ChevronRight,
-  ChevronLeft
+  ChevronUp, 
+  ChevronDown,
+  Sparkles
 } from 'lucide-react';
 import { Waypoint, KandaType } from '../types';
-import { getKandaBadgeClass } from '../utils/geoUtils';
+import { getKandaBadgeClass, getKandaColor } from '../utils/geoUtils';
 
 interface TimelineScrubberProps {
   waypoints: Waypoint[];
@@ -22,13 +22,13 @@ interface TimelineScrubberProps {
 }
 
 const kandas: { name: KandaType; label: string }[] = [
-  { name: 'Bala Kanda', label: 'बालकाण्ड' },
-  { name: 'Ayodhya Kanda', label: 'अयोध्याकाण्ड' },
-  { name: 'Aranya Kanda', label: 'अरण्यकाण्ड' },
-  { name: 'Kishkindha Kanda', label: 'किष्किन्धाकाण्ड' },
-  { name: 'Sundara Kanda', label: 'सुन्दरकाण्ड' },
-  { name: 'Yuddha Kanda', label: 'युद्धकाण्ड' },
-  { name: 'Uttara Kanda', label: 'उत्तरकाण्ड' },
+  { name: 'Bala Kanda', label: 'बाल' },
+  { name: 'Ayodhya Kanda', label: 'अयोध्या' },
+  { name: 'Aranya Kanda', label: 'अरण्य' },
+  { name: 'Kishkindha Kanda', label: 'किष्किन्धा' },
+  { name: 'Sundara Kanda', label: 'सुन्दर' },
+  { name: 'Yuddha Kanda', label: 'युद्ध' },
+  { name: 'Uttara Kanda', label: 'उत्तर' },
 ];
 
 export const TimelineScrubber: React.FC<TimelineScrubberProps> = ({
@@ -40,6 +40,7 @@ export const TimelineScrubber: React.FC<TimelineScrubberProps> = ({
   activeKandaFilter,
   onFilterKanda,
 }) => {
+  const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const currentWaypoint = waypoints[currentIndex];
 
   const handlePrev = () => {
@@ -58,69 +59,95 @@ export const TimelineScrubber: React.FC<TimelineScrubberProps> = ({
     }
   };
 
-  return (
-    <div className="relative z-20 bg-[#121622]/95 backdrop-blur-md border-t border-amber-500/20 px-4 py-2.5 shadow-2xl">
-      <div className="max-w-7xl mx-auto flex flex-col gap-2">
-        {/* Kanda Filter Badges */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none justify-start md:justify-center">
-          <button
-            onClick={() => onFilterKanda(null)}
-            className={`px-2.5 py-1 rounded-full text-xs font-medium border transition-all shrink-0 ${
-              activeKandaFilter === null
-                ? 'bg-amber-500 text-slate-950 border-amber-400 font-bold shadow-sm shadow-amber-500/20'
-                : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:text-slate-200'
-            }`}
-          >
-            All Kandas ({waypoints.length})
-          </button>
+  if (isMinimized) {
+    return (
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30">
+        <button
+          onClick={() => setIsMinimized(false)}
+          className="flex items-center gap-2 bg-[#0e1320]/90 hover:bg-slate-900 border border-amber-500/40 px-4 py-2 rounded-full text-xs text-amber-200 font-semibold shadow-2xl backdrop-blur-xl transition-all hover:scale-105"
+        >
+          <span>🏹 Timeline: #{currentIndex + 1} {currentWaypoint?.ancientName}</span>
+          <ChevronUp size={14} />
+        </button>
+      </div>
+    );
+  }
 
-          {kandas.map((k) => {
-            const isSelected = activeKandaFilter === k.name;
-            return (
-              <button
-                key={k.name}
-                onClick={() => onFilterKanda(isSelected ? null : k.name)}
-                className={`px-2.5 py-1 rounded-full text-xs font-medium border transition-all shrink-0 flex items-center gap-1 ${
-                  isSelected
-                    ? 'bg-amber-500/25 text-amber-300 border-amber-400/60 shadow-sm'
-                    : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:text-slate-200'
-                }`}
-              >
-                <span>{k.name}</span>
-                <span className="text-[10px] text-slate-500">({k.label})</span>
-              </button>
-            );
-          })}
+  return (
+    <div className="relative z-20 bg-[#0d111c]/95 backdrop-blur-2xl border-t border-amber-500/20 px-4 py-2.5 shadow-2xl transition-all">
+      <div className="max-w-7xl mx-auto flex flex-col gap-2">
+        
+        {/* Top Mini Header: Kandas & Minimize Button */}
+        <div className="flex items-center justify-between gap-2">
+          {/* Kanda Filter Badges */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none flex-1">
+            <button
+              onClick={() => onFilterKanda(null)}
+              className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border transition-all shrink-0 ${
+                activeKandaFilter === null
+                  ? 'bg-amber-500 text-slate-950 border-amber-400 font-bold shadow-sm'
+                  : 'bg-slate-950/60 text-slate-400 border-slate-800 hover:text-slate-200'
+              }`}
+            >
+              All Kandas ({waypoints.length})
+            </button>
+
+            {kandas.map((k) => {
+              const isSelected = activeKandaFilter === k.name;
+              return (
+                <button
+                  key={k.name}
+                  onClick={() => onFilterKanda(isSelected ? null : k.name)}
+                  className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border transition-all shrink-0 flex items-center gap-1 ${
+                    isSelected
+                      ? 'bg-amber-500/25 text-amber-300 border-amber-400/60 shadow-sm'
+                      : 'bg-slate-950/60 text-slate-400 border-slate-800 hover:text-slate-200'
+                  }`}
+                >
+                  <span>{k.name}</span>
+                  <span className="text-[10px] text-slate-500">({k.label})</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            onClick={() => setIsMinimized(true)}
+            className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shrink-0"
+            title="Minimize timeline"
+          >
+            <ChevronDown size={16} />
+          </button>
         </div>
 
-        {/* Stepper Controls & Waypoint Quick Details */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
-          {/* Navigation Buttons */}
+        {/* Stepper Controls, Playback & Scrubber */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 pt-0.5">
+          {/* Controls: Play/Pause, Next/Prev */}
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}
-              className="p-2 rounded-xl bg-slate-900/80 text-slate-300 hover:text-amber-300 border border-slate-700/80 hover:border-amber-500/40 transition-all shadow-sm"
+              className="p-2 rounded-xl bg-slate-950/80 text-slate-300 hover:text-amber-300 border border-slate-800 hover:border-amber-500/40 transition-all shadow-sm"
               title="Previous Waypoint"
             >
-              <SkipBack size={16} />
+              <SkipBack size={15} />
             </button>
 
             <button
               onClick={onTogglePlayTour}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-xs border shadow-lg transition-all ${
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-xl font-bold text-xs border transition-all ${
                 isPlayingTour
-                  ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-amber-500/25 animate-pulse'
-                  : 'bg-gradient-to-r from-amber-600 to-amber-700 text-white border-amber-400/40 hover:from-amber-500 hover:to-amber-600'
+                  ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md shadow-amber-500/25 animate-pulse'
+                  : 'bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 text-slate-950 font-bold border-amber-400/40 hover:brightness-110 shadow-sm'
               }`}
             >
               {isPlayingTour ? (
                 <>
-                  <Pause size={15} />
+                  <Pause size={14} className="fill-current" />
                   <span>Pause Tour</span>
                 </>
               ) : (
                 <>
-                  <Play size={15} />
+                  <Play size={14} className="fill-current ml-0.5" />
                   <span>Auto Tour</span>
                 </>
               )}
@@ -128,29 +155,29 @@ export const TimelineScrubber: React.FC<TimelineScrubberProps> = ({
 
             <button
               onClick={handleNext}
-              className="p-2 rounded-xl bg-slate-900/80 text-slate-300 hover:text-amber-300 border border-slate-700/80 hover:border-amber-500/40 transition-all shadow-sm"
+              className="p-2 rounded-xl bg-slate-950/80 text-slate-300 hover:text-amber-300 border border-slate-800 hover:border-amber-500/40 transition-all shadow-sm"
               title="Next Waypoint"
             >
-              <SkipForward size={16} />
+              <SkipForward size={15} />
             </button>
 
             <span className="text-xs text-slate-400 font-mono ml-1">
-              <span className="text-amber-300 font-bold">{currentIndex + 1}</span> / {waypoints.length}
+              <strong className="text-amber-300">{currentIndex + 1}</strong> / {waypoints.length}
             </span>
           </div>
 
-          {/* Current Waypoint Banner */}
+          {/* Current Waypoint Information Badge */}
           {currentWaypoint && (
-            <div className="flex items-center gap-3 bg-slate-900/60 border border-amber-500/20 px-3.5 py-1.5 rounded-xl max-w-xl w-full sm:w-auto">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 font-bold text-xs shrink-0">
+            <div className="flex items-center gap-3 bg-slate-950/80 border border-amber-500/20 px-3.5 py-1.5 rounded-xl max-w-lg w-full md:w-auto">
+              <div className="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 font-bold text-xs shrink-0">
                 #{currentWaypoint.order}
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="font-serif font-bold text-amber-300 text-xs sm:text-sm truncate">
+                  <span className="font-serif font-bold text-amber-200 text-xs truncate">
                     {currentWaypoint.ancientName}
                   </span>
-                  <span className={`text-[10px] px-2 py-0.2 rounded-full border ${getKandaBadgeClass(currentWaypoint.kanda)}`}>
+                  <span className={`text-[9px] uppercase font-bold tracking-wider px-2 py-0.2 rounded-full border ${getKandaBadgeClass(currentWaypoint.kanda)}`}>
                     {currentWaypoint.kanda}
                   </span>
                 </div>
@@ -161,15 +188,15 @@ export const TimelineScrubber: React.FC<TimelineScrubberProps> = ({
             </div>
           )}
 
-          {/* Timeline Slider / Scrubber */}
-          <div className="w-full sm:w-48 flex items-center gap-2">
+          {/* Visual Progress Bar & Slider */}
+          <div className="w-full md:w-56 flex items-center gap-2">
             <input
               type="range"
               min={0}
               max={waypoints.length - 1}
               value={currentIndex}
               onChange={(e) => onSelectIndex(Number(e.target.value))}
-              className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+              className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-950 rounded-lg border border-slate-800"
             />
           </div>
         </div>

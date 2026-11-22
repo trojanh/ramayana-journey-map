@@ -7,7 +7,10 @@ import {
   Users, 
   Landmark, 
   ChevronRight, 
-  ChevronLeft
+  ChevronLeft,
+  Headphones,
+  Maximize2,
+  Minimize2
 } from 'lucide-react';
 import { Waypoint } from '../types';
 import { getKandaBadgeClass } from '../utils/geoUtils';
@@ -26,189 +29,260 @@ export const WaypointDrawer: React.FC<WaypointDrawerProps> = ({
   onNext,
   onPrev,
 }) => {
-  const [scriptureTab, setScriptureTab] = useState<'valmiki' | 'tulsidas'>('valmiki');
+  const [activeTab, setActiveTab] = useState<'narrative' | 'scripture' | 'heritage'>('narrative');
+  const [scriptureSubTab, setScriptureSubTab] = useState<'valmiki' | 'tulsidas'>('valmiki');
 
   if (!waypoint) return null;
 
   return (
-    <aside className="fixed top-16 bottom-24 right-4 z-30 w-full max-w-md bg-[#131724]/95 backdrop-blur-xl border border-amber-500/30 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-right duration-300">
+    <aside className="fixed top-20 bottom-24 right-4 z-30 w-full max-w-md bg-[#0f1422]/95 backdrop-blur-2xl border border-amber-500/30 rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-right duration-300 transition-all">
       {/* Header */}
-      <div className="relative p-4 border-b border-amber-500/20 bg-gradient-to-r from-amber-950/40 via-slate-900/60 to-slate-900/40">
+      <div className="relative p-4 md:p-5 border-b border-amber-500/20 bg-gradient-to-r from-amber-950/40 via-[#121727] to-[#0f1422]">
         <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center font-bold text-white shadow-lg shadow-amber-500/20 border border-amber-400/40 shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700 flex items-center justify-center font-bold text-slate-950 shadow-lg shadow-amber-500/20 border border-amber-300/40 shrink-0 text-base">
               #{waypoint.order}
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${getKandaBadgeClass(waypoint.kanda)}`}>
-                  {waypoint.kanda}
-                </span>
-              </div>
-              <h2 className="font-serif font-bold text-lg text-amber-200 mt-0.5 leading-snug">
+              <span className={`text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${getKandaBadgeClass(waypoint.kanda)}`}>
+                {waypoint.kanda}
+              </span>
+              <h2 className="font-serif font-bold text-lg text-amber-200 mt-1 leading-snug">
                 {waypoint.ancientName}
               </h2>
-              <div className="text-xs text-amber-400/90 font-medium">
+              <div className="text-xs text-amber-400 font-medium">
                 {waypoint.sanskritName}
               </div>
             </div>
           </div>
 
-          <button
-            onClick={onClose}
-            className="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
-          >
-            <X size={18} />
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+              title="Close panel"
+            >
+              <X size={18} />
+            </button>
+          </div>
         </div>
 
-        {/* Modern Location Tag */}
-        <div className="mt-2.5 flex items-center gap-1.5 text-xs text-slate-300 bg-slate-950/50 px-2.5 py-1.5 rounded-lg border border-slate-800">
-          <MapPin size={13} className="text-emerald-400 shrink-0" />
-          <span>Modern: <strong>{waypoint.modernLocation}</strong>, {waypoint.modernStateOrCountry}</span>
+        {/* Modern Location Badge */}
+        <div className="mt-3 flex items-center justify-between gap-2 text-xs text-slate-300 bg-slate-950/60 px-3 py-1.5 rounded-xl border border-slate-800">
+          <div className="flex items-center gap-1.5 truncate">
+            <MapPin size={13} className="text-emerald-400 shrink-0" />
+            <span className="truncate"><strong>{waypoint.modernLocation}</strong>, {waypoint.modernStateOrCountry}</span>
+          </div>
+          <span className="text-[10px] text-slate-400 uppercase tracking-widest font-mono shrink-0">
+            {waypoint.travelMode.replace('_', ' ')}
+          </span>
+        </div>
+
+        {/* View Tabs */}
+        <div className="flex items-center gap-1 mt-3 bg-slate-950/80 p-1 rounded-xl border border-slate-800">
+          <button
+            onClick={() => setActiveTab('narrative')}
+            className={`flex-1 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+              activeTab === 'narrative'
+                ? 'bg-amber-500 text-slate-950 shadow-sm font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Scroll size={13} />
+            <span>Story & Audio</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('scripture')}
+            className={`flex-1 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+              activeTab === 'scripture'
+                ? 'bg-amber-500 text-slate-950 shadow-sm font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <BookOpen size={13} />
+            <span>Scripture</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('heritage')}
+            className={`flex-1 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+              activeTab === 'heritage'
+                ? 'bg-amber-500 text-slate-950 shadow-sm font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Landmark size={13} />
+            <span>Heritage</span>
+          </button>
         </div>
       </div>
 
       {/* Scrollable Content Body */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {/* Audio Narration Player in Hindi & English */}
-        <AudioNarrationPlayer waypoint={waypoint} />
+      <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4">
+        
+        {/* TAB 1: NARRATIVE & AUDIO */}
+        {activeTab === 'narrative' && (
+          <div className="space-y-4 animate-in fade-in duration-200">
+            {/* Audio Narration Player */}
+            <AudioNarrationPlayer waypoint={waypoint} />
 
-        {/* Title & Key Event */}
-        <div className="bg-amber-500/10 border border-amber-500/25 p-3 rounded-xl">
-          <div className="text-xs font-semibold text-amber-300 uppercase tracking-wide flex items-center gap-1.5">
-            <span>✨</span> Key Event
-          </div>
-          <div className="font-serif font-bold text-sm text-slate-100 mt-1">
-            {waypoint.title}
-          </div>
-          <div className="text-xs text-amber-200/90 mt-0.5 font-medium">
-            {waypoint.keyEvent}
-          </div>
-        </div>
-
-        {/* Detailed Narrative */}
-        <div className="space-y-1.5">
-          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-            <Scroll size={13} className="text-amber-400" /> Narrative & Context
-          </div>
-          <p className="text-xs leading-relaxed text-slate-200 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-            {waypoint.detailedNarrative}
-          </p>
-        </div>
-
-        {/* Characters Involved */}
-        <div className="space-y-1.5">
-          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-            <Users size={13} className="text-amber-400" /> Characters Present
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {waypoint.charactersInvolved.map((char) => (
-              <span
-                key={char}
-                className="text-[11px] px-2 py-0.5 rounded-md bg-slate-800/80 text-amber-200/90 border border-slate-700"
-              >
-                {char}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Scripture References (Dual Tabs) */}
-        <div className="space-y-2">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
-            <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <BookOpen size={13} className="text-amber-400" /> Scripture Source
+            {/* Key Event Card */}
+            <div className="bg-gradient-to-r from-amber-500/15 to-transparent border border-amber-500/25 p-3.5 rounded-2xl">
+              <div className="text-[10px] font-bold text-amber-400 uppercase tracking-widest flex items-center gap-1.5">
+                <span>✨</span> Core Milestone
+              </div>
+              <div className="font-serif font-bold text-sm text-slate-100 mt-1">
+                {waypoint.title}
+              </div>
+              <div className="text-xs text-amber-300/90 mt-0.5 font-medium">
+                {waypoint.keyEvent}
+              </div>
             </div>
-            <div className="flex items-center gap-1 bg-slate-950 p-0.5 rounded-lg border border-slate-800">
+
+            {/* Narrative Context */}
+            <div className="space-y-1.5">
+              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Scroll size={13} className="text-amber-400" /> Complete Episode Chronicle
+              </div>
+              <p className="text-xs leading-relaxed text-slate-200 bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 font-sans">
+                {waypoint.detailedNarrative}
+              </p>
+            </div>
+
+            {/* Characters Present */}
+            <div className="space-y-1.5">
+              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Users size={13} className="text-amber-400" /> Sacred Figures Present
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {waypoint.charactersInvolved.map((char) => (
+                  <span
+                    key={char}
+                    className="text-xs px-2.5 py-1 rounded-xl bg-slate-900/90 text-amber-200 border border-slate-800"
+                  >
+                    {char}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 2: SCRIPTURE */}
+        {activeTab === 'scripture' && (
+          <div className="space-y-4 animate-in fade-in duration-200">
+            {/* Scripture Sub-tabs */}
+            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
               <button
-                onClick={() => setScriptureTab('valmiki')}
-                className={`text-[10px] font-semibold px-2 py-0.5 rounded-md transition-all ${
-                  scriptureTab === 'valmiki'
-                    ? 'bg-amber-500 text-slate-950'
+                onClick={() => setScriptureSubTab('valmiki')}
+                className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
+                  scriptureSubTab === 'valmiki'
+                    ? 'bg-amber-500 text-slate-950 font-bold'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Valmiki Ramayana
+                Valmiki Ramayana (मूल संस्कृत)
               </button>
               {waypoint.scripture.tulsidas && (
                 <button
-                  onClick={() => setScriptureTab('tulsidas')}
-                  className={`text-[10px] font-semibold px-2 py-0.5 rounded-md transition-all ${
-                    scriptureTab === 'tulsidas'
-                      ? 'bg-amber-500 text-slate-950'
+                  onClick={() => setScriptureSubTab('tulsidas')}
+                  className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
+                    scriptureSubTab === 'tulsidas'
+                      ? 'bg-amber-500 text-slate-950 font-bold'
                       : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  Ramcharitmanas
+                  रामचरितमानस (अवधी)
                 </button>
               )}
             </div>
+
+            {/* Valmiki Shloka */}
+            {scriptureSubTab === 'valmiki' && (
+              <div className="bg-slate-950/70 border border-amber-500/30 p-4 rounded-2xl space-y-3">
+                <div className="text-xs font-bold text-amber-400 font-mono flex items-center justify-between border-b border-slate-800 pb-2">
+                  <span>{waypoint.scripture.valmiki.kanda}</span>
+                  <span>Sarga {waypoint.scripture.valmiki.sarga}{waypoint.scripture.valmiki.shloka ? `, Shloka ${waypoint.scripture.valmiki.shloka}` : ''}</span>
+                </div>
+                <div className="font-serif text-sm text-amber-100 leading-loose italic bg-amber-950/30 p-3.5 rounded-xl border border-amber-500/20 text-center">
+                  "{waypoint.scripture.valmiki.text}"
+                </div>
+                <div className="text-xs text-slate-300 leading-relaxed pt-1">
+                  <span className="text-amber-400 font-semibold block mb-1">English Translation:</span>
+                  {waypoint.scripture.valmiki.translation}
+                </div>
+              </div>
+            )}
+
+            {/* Tulsidas Chaupai */}
+            {scriptureSubTab === 'tulsidas' && waypoint.scripture.tulsidas && (
+              <div className="bg-slate-950/70 border border-amber-500/30 p-4 rounded-2xl space-y-3">
+                <div className="text-xs font-bold text-amber-400 font-mono flex items-center justify-between border-b border-slate-800 pb-2">
+                  <span>{waypoint.scripture.tulsidas.kanda}</span>
+                  <span>{waypoint.scripture.tulsidas.dohaOrChaupai}</span>
+                </div>
+                <div className="font-serif text-sm text-amber-100 leading-loose italic bg-amber-950/30 p-3.5 rounded-xl border border-amber-500/20 text-center">
+                  "{waypoint.scripture.tulsidas.text}"
+                </div>
+                <div className="text-xs text-slate-300 leading-relaxed pt-1">
+                  <span className="text-amber-400 font-semibold block mb-1">Hindi / English Meaning:</span>
+                  {waypoint.scripture.tulsidas.meaning}
+                </div>
+              </div>
+            )}
           </div>
+        )}
 
-          {/* Valmiki Tab */}
-          {scriptureTab === 'valmiki' && (
-            <div className="bg-slate-900/80 border border-amber-500/20 p-3 rounded-xl space-y-2">
-              <div className="text-[10px] text-amber-400 font-mono">
-                {waypoint.scripture.valmiki.kanda} • Sarga {waypoint.scripture.valmiki.sarga}
-                {waypoint.scripture.valmiki.shloka && `, Shloka ${waypoint.scripture.valmiki.shloka}`}
+        {/* TAB 3: HERITAGE & GEOGRAPHY */}
+        {activeTab === 'heritage' && (
+          <div className="space-y-4 animate-in fade-in duration-200">
+            {/* Present-day Temple */}
+            {waypoint.presentDayTempleOrSite && (
+              <div className="bg-emerald-950/30 border border-emerald-500/30 p-4 rounded-2xl space-y-2">
+                <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <Landmark size={14} /> Sacred Temple / Pilgrimage Site Today
+                </div>
+                <div className="text-sm font-semibold text-emerald-200">
+                  {waypoint.presentDayTempleOrSite}
+                </div>
+                <div className="text-xs text-slate-300">
+                  Located in modern-day <strong>{waypoint.modernLocation}</strong>, {waypoint.modernStateOrCountry}.
+                </div>
               </div>
-              <div className="text-xs text-amber-100 font-serif leading-relaxed italic bg-amber-950/20 p-2.5 rounded-lg border border-amber-500/20">
-                "{waypoint.scripture.valmiki.text}"
-              </div>
-              <div className="text-[11px] text-slate-300 leading-normal">
-                <strong>Translation:</strong> {waypoint.scripture.valmiki.translation}
-              </div>
-            </div>
-          )}
+            )}
 
-          {/* Tulsidas Tab */}
-          {scriptureTab === 'tulsidas' && waypoint.scripture.tulsidas && (
-            <div className="bg-slate-900/80 border border-amber-500/20 p-3 rounded-xl space-y-2">
-              <div className="text-[10px] text-amber-400 font-mono">
-                {waypoint.scripture.tulsidas.kanda} • {waypoint.scripture.tulsidas.dohaOrChaupai}
+            {/* Historical Significance */}
+            <div className="bg-slate-950/70 border border-slate-800 p-4 rounded-2xl space-y-2">
+              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+                Historical & Spiritual Significance
               </div>
-              <div className="text-xs text-amber-100 font-serif leading-relaxed italic bg-amber-950/20 p-2.5 rounded-lg border border-amber-500/20">
-                "{waypoint.scripture.tulsidas.text}"
-              </div>
-              <div className="text-[11px] text-slate-300 leading-normal">
-                <strong>Meaning:</strong> {waypoint.scripture.tulsidas.meaning}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Present Day Heritage / Temple */}
-        {waypoint.presentDayTempleOrSite && (
-          <div className="space-y-1.5">
-            <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <Landmark size={13} className="text-emerald-400" /> Present-Day Heritage Shrine
-            </div>
-            <div className="text-xs text-emerald-200 bg-emerald-950/30 border border-emerald-500/30 p-2.5 rounded-xl">
-              📍 {waypoint.presentDayTempleOrSite}
+              <p className="text-xs leading-relaxed text-slate-200">
+                {waypoint.historicalSignificance}
+              </p>
             </div>
           </div>
         )}
       </div>
 
-      {/* Footer Navigation */}
-      <div className="p-3 border-t border-amber-500/20 bg-slate-900/90 flex items-center justify-between">
+      {/* Footer Navigation Bar */}
+      <div className="p-3 md:p-4 border-t border-amber-500/20 bg-slate-950/90 flex items-center justify-between">
         <button
           onClick={onPrev}
-          className="flex items-center gap-1 text-xs text-slate-300 hover:text-amber-300 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors"
+          className="flex items-center gap-1 text-xs font-semibold text-slate-300 hover:text-amber-300 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 transition-colors"
         >
-          <ChevronLeft size={14} /> Previous
+          <ChevronLeft size={15} /> Prev
         </button>
 
-        <span className="text-[11px] text-slate-400 font-mono">
-          Milestone {waypoint.order} of 28
+        <span className="text-xs font-mono text-slate-400">
+          <strong className="text-amber-300">{waypoint.order}</strong> of 28
         </span>
 
         <button
           onClick={onNext}
-          className="flex items-center gap-1 text-xs text-slate-300 hover:text-amber-300 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors"
+          className="flex items-center gap-1 text-xs font-semibold text-slate-300 hover:text-amber-300 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 transition-colors"
         >
-          Next <ChevronRight size={14} />
+          Next <ChevronRight size={15} />
         </button>
       </div>
     </aside>

@@ -44,7 +44,7 @@ export const MapContainer: React.FC<MapContainerProps> = ({
   useEffect(() => {
     if (!mapRef.current || leafletMap.current) return;
 
-    // Create Leaflet map
+    // Create Leaflet map centered over Indian subcontinent
     const map = L.map(mapRef.current, {
       center: [20.5937, 80.9629],
       zoom: 5,
@@ -64,7 +64,7 @@ export const MapContainer: React.FC<MapContainerProps> = ({
     // Initial tile layer (CartoDB Dark Matter)
     const tileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
     activeTileLayer.current = L.tileLayer(tileUrl, {
-      attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; OpenStreetMap',
+      attribution: '&copy; CARTO &copy; OpenStreetMap',
       subdomains: 'abcd',
       maxZoom: 19,
     }).addTo(map);
@@ -116,9 +116,9 @@ export const MapContainer: React.FC<MapContainerProps> = ({
       const polygon = L.polygon(kingdom.polygonCoordinates as L.LatLngExpression[], {
         color: kingdom.color,
         fillColor: kingdom.color,
-        fillOpacity: 0.18,
+        fillOpacity: 0.16,
         weight: 1.5,
-        dashArray: '4, 4',
+        dashArray: '5, 5',
       });
 
       polygon.bindTooltip(
@@ -135,16 +135,16 @@ export const MapContainer: React.FC<MapContainerProps> = ({
       });
 
       polygon.on('mouseover', function(this: L.Polygon) {
-        this.setStyle({ fillOpacity: 0.35, weight: 2.5 });
+        this.setStyle({ fillOpacity: 0.32, weight: 2.2 });
       });
 
       polygon.on('mouseout', function(this: L.Polygon) {
-        this.setStyle({ fillOpacity: 0.18, weight: 1.5 });
+        this.setStyle({ fillOpacity: 0.16, weight: 1.5 });
       });
 
       polygon.addTo(kingdomLayerGroup.current!);
 
-      // Capital Marker with Ancient Crest
+      // Capital Marker with Regal Crest
       const capitalMarker = L.circleMarker(kingdom.capitalCoordinates as L.LatLngExpression, {
         radius: 4,
         fillColor: kingdom.color,
@@ -176,8 +176,8 @@ export const MapContainer: React.FC<MapContainerProps> = ({
     modernRegions.forEach((region) => {
       const isCountry = region.type === 'country';
       const markerHtml = `
-        <div class="flex items-center gap-1 bg-slate-900/90 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/40 text-[10px] whitespace-nowrap shadow-lg backdrop-blur-sm pointer-events-none">
-          <span class="w-1.5 h-1.5 rounded-full ${isCountry ? 'bg-cyan-400' : 'bg-emerald-400'}"></span>
+        <div class="flex items-center gap-1.5 bg-[#0a0e1a]/90 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/40 text-[10px] font-medium whitespace-nowrap shadow-lg backdrop-blur-md pointer-events-none">
+          <span class="w-1.5 h-1.5 rounded-full ${isCountry ? 'bg-cyan-400 animate-pulse' : 'bg-emerald-400'}"></span>
           <span>${region.name}</span>
         </div>
       `;
@@ -221,7 +221,7 @@ export const MapContainer: React.FC<MapContainerProps> = ({
     });
   }, [showRoutes]);
 
-  // Render Waypoint Markers
+  // Render Waypoint Markers with Artistic Visual Icons
   useEffect(() => {
     if (!leafletMap.current || !markersLayerGroup.current) return;
     markersLayerGroup.current.clearLayers();
@@ -234,17 +234,28 @@ export const MapContainer: React.FC<MapContainerProps> = ({
       const isSelected = selectedWaypoint?.id === wp.id;
       const kandaColor = getKandaColor(wp.kanda);
 
+      // Icon symbol based on episode
+      let iconSymbol = '📍';
+      if (wp.iconType === 'birth' || wp.iconType === 'coronation') iconSymbol = '👑';
+      else if (wp.iconType === 'temple') iconSymbol = '🪷';
+      else if (wp.iconType === 'battle') iconSymbol = '⚔️';
+      else if (wp.iconType === 'water') iconSymbol = '🌊';
+      else if (wp.iconType === 'mountain') iconSymbol = '🏔️';
+      else if (wp.iconType === 'bridge') iconSymbol = '🌉';
+      else if (wp.iconType === 'ascension') iconSymbol = '☀️';
+      else if (wp.iconType === 'forest') iconSymbol = '🌿';
+
       const markerHtml = `
-        <div class="relative group cursor-pointer">
-          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shadow-2xl transition-all duration-300 ${
+        <div class="relative group cursor-pointer transition-transform">
+          <div class="w-8 h-8 rounded-2xl flex items-center justify-center font-bold text-xs shadow-2xl transition-all duration-300 ${
             isSelected 
-              ? 'ring-4 ring-amber-400 scale-125 z-40 bg-amber-500 text-slate-950 marker-active-pulse' 
+              ? 'ring-4 ring-amber-400 scale-125 z-40 bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 marker-active-pulse' 
               : 'scale-100 hover:scale-115 text-white'
-          }" style="background-color: ${isSelected ? '#f59e0b' : kandaColor}; border: 2px solid ${isSelected ? '#fff' : '#1e293b'};">
-            ${wp.order}
+          }" style="background-color: ${isSelected ? '#f59e0b' : kandaColor}; border: 2px solid ${isSelected ? '#fff' : 'rgba(255,255,255,0.4)'};">
+            <span class="text-xs">${isSelected ? wp.order : iconSymbol}</span>
           </div>
-          <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-slate-950/90 text-amber-200 text-[9px] font-semibold px-1.5 py-0.2 rounded border border-amber-500/30 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
-            ${wp.ancientName}
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-[#0c101c]/95 text-amber-200 text-[10px] font-semibold px-2 py-0.5 rounded-lg border border-amber-500/30 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl z-50">
+            #${wp.order} ${wp.ancientName}
           </div>
         </div>
       `;
@@ -267,10 +278,10 @@ export const MapContainer: React.FC<MapContainerProps> = ({
 
       marker.bindTooltip(
         `<div class="p-1 max-w-xs">
-          <div class="text-[10px] font-semibold text-amber-400 uppercase tracking-wider">${wp.kanda} • #${wp.order}</div>
-          <div class="font-serif font-bold text-xs text-white">${wp.ancientName}</div>
+          <div class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">${wp.kanda} • Milestone #${wp.order}</div>
+          <div class="font-serif font-bold text-xs text-white">${wp.ancientName} (${wp.sanskritName})</div>
           <div class="text-[10px] text-slate-300 mt-0.5 line-clamp-2">${wp.title}</div>
-          <div class="text-[9px] text-slate-400 mt-1">📍 ${wp.modernLocation}, ${wp.modernStateOrCountry}</div>
+          <div class="text-[9px] text-emerald-400 mt-1">📍 ${wp.modernLocation}, ${wp.modernStateOrCountry}</div>
         </div>`,
         { direction: 'top', offset: [0, -12] }
       );
@@ -298,80 +309,80 @@ export const MapContainer: React.FC<MapContainerProps> = ({
     <div className="relative w-full h-full overflow-hidden">
       <div ref={mapRef} className="w-full h-full z-0" />
 
-      {/* Floating Map Controls */}
+      {/* Floating Map Controls (Top Right) */}
       <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
         {/* Reset / Fit Subcontinent View */}
         <button
           onClick={handleResetView}
-          className="p-2.5 rounded-xl bg-slate-900/85 hover:bg-slate-800 text-slate-200 hover:text-amber-300 border border-amber-500/20 backdrop-blur-md shadow-lg transition-all"
-          title="Reset to Bharata Varsha Overview"
+          className="p-2.5 rounded-2xl bg-[#0e1320]/90 hover:bg-slate-900 text-slate-200 hover:text-amber-300 border border-amber-500/30 backdrop-blur-xl shadow-xl transition-all hover:scale-105"
+          title="Reset to Full Bharata Varsha Overview"
         >
           <Maximize2 size={16} />
         </button>
 
         {/* Map Theme Toggle */}
-        <div className="flex flex-col bg-slate-900/85 border border-amber-500/20 rounded-xl overflow-hidden backdrop-blur-md shadow-lg">
+        <div className="flex flex-col bg-[#0e1320]/90 border border-amber-500/30 rounded-2xl overflow-hidden backdrop-blur-xl shadow-xl">
           <button
             onClick={() => setMapTheme('dark')}
-            className={`p-2 transition-colors ${mapTheme === 'dark' ? 'bg-amber-500/30 text-amber-300' : 'text-slate-400 hover:text-slate-200'}`}
+            className={`p-2.5 transition-colors ${mapTheme === 'dark' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'}`}
             title="Cosmic Dark Map"
           >
-            <Moon size={16} />
+            <Moon size={15} />
           </button>
           <button
             onClick={() => setMapTheme('voyager')}
-            className={`p-2 transition-colors ${mapTheme === 'voyager' ? 'bg-amber-500/30 text-amber-300' : 'text-slate-400 hover:text-slate-200'}`}
+            className={`p-2.5 transition-colors ${mapTheme === 'voyager' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'}`}
             title="Parchment / Antique Light Map"
           >
-            <Sun size={16} />
+            <Sun size={15} />
           </button>
           <button
             onClick={() => setMapTheme('terrain')}
-            className={`p-2 transition-colors ${mapTheme === 'terrain' ? 'bg-amber-500/30 text-amber-300' : 'text-slate-400 hover:text-slate-200'}`}
-            title="Topographical Mountain Terrain"
+            className={`p-2.5 transition-colors ${mapTheme === 'terrain' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'}`}
+            title="Topographical Physical Terrain"
           >
-            <Compass size={16} />
+            <Compass size={15} />
           </button>
         </div>
       </div>
 
-      {/* Map Legend Overlay (Bottom Left) */}
-      <div className="absolute bottom-24 left-4 z-20 hidden lg:block bg-slate-900/90 border border-amber-500/25 rounded-xl p-3 backdrop-blur-md shadow-xl text-xs max-w-xs pointer-events-auto">
+      {/* Subtle Map Legend Overlay (Bottom Left) */}
+      <div className="absolute bottom-24 left-4 z-20 hidden lg:block bg-[#0e1320]/90 border border-amber-500/20 rounded-2xl p-3 backdrop-blur-xl shadow-xl text-xs max-w-xs pointer-events-auto">
         <div className="font-serif font-bold text-amber-300 mb-2 flex items-center gap-1.5 border-b border-slate-800 pb-1.5">
-          <span>📜</span> Map Cartography Legend
+          <span>📜</span> Seven Kandas Trail
         </div>
         <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-[11px] text-slate-300">
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-amber-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
             <span>Bala Kanda</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-red-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
             <span>Ayodhya Kanda</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
             <span>Aranya Kanda</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
-            <span>Kishkindha Kanda</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+            <span>Kishkindha</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-pink-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-pink-500"></span>
             <span>Sundara Kanda</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-rose-600"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
             <span>Yuddha Kanda</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-purple-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
             <span>Uttara Kanda</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-4 h-0.5 border-t border-dashed border-yellow-400"></span>
-            <span className="text-[10px]">Pushpaka Aerial</span>
+            <span className="w-3.5 h-0.5 border-t border-dashed border-yellow-400"></span>
+            <span className="text-[10px]">Pushpaka Flight</span>
           </div>
         </div>
       </div>

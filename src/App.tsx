@@ -9,6 +9,7 @@ import { AboutModal } from './components/AboutModal';
 import { journeyWaypoints } from './data/journeyWaypoints';
 import { Waypoint, AncientKingdom } from './types';
 import { sacredDrone } from './utils/audioSynth';
+import { BookOpen, Sparkles, ChevronUp, Headphones } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -61,7 +62,6 @@ export const App: React.FC = () => {
   const handleSelectIndex = useCallback((idx: number) => {
     setCurrentIndex(idx);
     setSelectedWaypoint(journeyWaypoints[idx]);
-    setIsDrawerOpen(true);
   }, []);
 
   // Next / Previous Waypoint
@@ -85,7 +85,7 @@ export const App: React.FC = () => {
         setSelectedWaypoint(journeyWaypoints[next]);
         return next;
       });
-    }, 6000);
+    }, 7000);
 
     return () => clearInterval(timer);
   }, [isPlayingTour]);
@@ -97,8 +97,8 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#0c0f17] text-slate-100 font-sans">
-      {/* Top Navigation */}
+    <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#080b12] text-slate-100 font-sans">
+      {/* Top Navigation Bar */}
       <Navbar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -130,7 +130,7 @@ export const App: React.FC = () => {
         />
 
         {/* Sliding Waypoint Drawer */}
-        {isDrawerOpen && (
+        {isDrawerOpen && selectedWaypoint && (
           <WaypointDrawer
             waypoint={selectedWaypoint}
             onClose={() => setIsDrawerOpen(false)}
@@ -138,9 +138,34 @@ export const App: React.FC = () => {
             onPrev={handlePrevWaypoint}
           />
         )}
+
+        {/* Floating Focus Pill when drawer is closed */}
+        {!isDrawerOpen && selectedWaypoint && (
+          <div className="absolute top-4 left-4 z-30 animate-in fade-in slide-in-from-top-2 duration-200">
+            <button
+              onClick={() => setIsDrawerOpen(true)}
+              className="flex items-center gap-3 bg-[#0d121f]/95 hover:bg-[#121829] border border-amber-500/40 p-2 pr-4 rounded-2xl shadow-2xl backdrop-blur-xl transition-all hover:scale-105 group"
+            >
+              <div className="w-8 h-8 rounded-xl bg-amber-500 flex items-center justify-center font-bold text-xs text-slate-950">
+                #{selectedWaypoint.order}
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-serif font-bold text-amber-200 group-hover:text-amber-300">
+                  {selectedWaypoint.ancientName}
+                </div>
+                <div className="text-[10px] text-slate-400 line-clamp-1 max-w-[200px]">
+                  {selectedWaypoint.title}
+                </div>
+              </div>
+              <span className="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-lg border border-amber-500/30 ml-1">
+                Open Details →
+              </span>
+            </button>
+          </div>
+        )}
       </main>
 
-      {/* Bottom Timeline & Controls */}
+      {/* Bottom Timeline Scrubber */}
       <TimelineScrubber
         waypoints={journeyWaypoints}
         currentIndex={currentIndex}
@@ -151,12 +176,13 @@ export const App: React.FC = () => {
         onFilterKanda={setActiveKandaFilter}
       />
 
-      {/* Modals */}
+      {/* Ancient Kingdom Detail Modal */}
       <KingdomModal
         kingdom={selectedKingdom}
         onClose={() => setSelectedKingdom(null)}
       />
 
+      {/* Full Epic Chronicle Book Reader Modal */}
       <StoryReaderModal
         isOpen={isStoryReaderOpen}
         onClose={() => setIsStoryReaderOpen(false)}
@@ -164,6 +190,7 @@ export const App: React.FC = () => {
         onSelectWaypointOnMap={handleSelectWaypoint}
       />
 
+      {/* About Modal */}
       <AboutModal
         isOpen={isAboutOpen}
         onClose={() => setIsAboutOpen(false)}
