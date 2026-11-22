@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#080b12] text-slate-100 font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom styling for Leaflet */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #080b12 !important;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(14, 18, 28, 0.95) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(226, 183, 20, 0.35) !important;
+  backdrop-filter: blur(16px);
+  border-radius: 14px !important;
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(226, 183, 20, 0.15) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(14, 18, 28, 0.95) !important;
+  border: 1px solid rgba(226, 183, 20, 0.35) !important;
+}
+
+/* Tooltips */
+.leaflet-custom-tooltip {
+  background: rgba(14, 18, 28, 0.92) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  border-radius: 8px !important;
+  color: #f8fafc !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(8px);
+  padding: 4px 8px !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 14, 23, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(226, 183, 20, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(226, 183, 20, 0.5);
+}
+
+/* Marker Glow Animations */
+@keyframes sacredPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(245, 158, 11, 0);
+    transform: scale(1.08);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    transform: scale(1);
+  }
+}
+
+.marker-active-pulse {
+  animation: sacredPulse 2.2s infinite ease-in-out;
+}
+
+/* Equalizer Waveform Animations */
+@keyframes soundWave {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 20px;
+  }
+}
+
+.wave-bar {
+  animation: soundWave 1.2s infinite ease-in-out;
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fffbeb 0%, #fde047 30%, #eab308 70%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, rgba(245, 158, 11, 0.5), rgba(234, 179, 8, 0.2)) 1;
+}
+
+/* Smooth glass backgrounds */
+.glass-panel {
+  background: rgba(14, 18, 28, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
