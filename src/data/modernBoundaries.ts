@@ -1,0 +1,140 @@
+import { ModernRegion } from '../types';
+
+export const modernRegions: ModernRegion[] = [
+  // Neighboring Countries
+  {
+    id: 'india',
+    name: 'India (Bharat)',
+    type: 'country',
+    capital: 'New Delhi',
+    coordinates: [28.6139, 77.2090],
+  },
+  {
+    id: 'nepal',
+    name: 'Nepal',
+    type: 'country',
+    capital: 'Kathmandu',
+    coordinates: [27.7172, 85.3240],
+  },
+  {
+    id: 'sri_lanka',
+    name: 'Sri Lanka',
+    type: 'country',
+    capital: 'Colombo / Sri Jayawardenepura Kotte',
+    coordinates: [6.9271, 79.8612],
+  },
+  {
+    id: 'pakistan',
+    name: 'Pakistan',
+    type: 'country',
+    capital: 'Islamabad',
+    coordinates: [33.6844, 73.0479],
+  },
+  {
+    id: 'bangladesh',
+    name: 'Bangladesh',
+    type: 'country',
+    capital: 'Dhaka',
+    coordinates: [23.8103, 90.4125],
+  },
+
+  // Key Modern Indian States along the Ramayana Trail
+  {
+    id: 'uttar_pradesh',
+    name: 'Uttar Pradesh',
+    type: 'state',
+    capital: 'Lucknow',
+    coordinates: [26.8467, 80.9462],
+  },
+  {
+    id: 'bihar',
+    name: 'Bihar',
+    type: 'state',
+    capital: 'Patna',
+    coordinates: [25.5941, 85.1376],
+  },
+  {
+    id: 'madhya_pradesh',
+    name: 'Madhya Pradesh',
+    type: 'state',
+    capital: 'Bhopal',
+    coordinates: [23.2599, 77.4126],
+  },
+  {
+    id: 'chhattisgarh',
+    name: 'Chhattisgarh',
+    type: 'state',
+    capital: 'Raipur',
+    coordinates: [21.2514, 81.6296],
+  },
+  {
+    id: 'maharashtra',
+    name: 'Maharashtra',
+    type: 'state',
+    capital: 'Mumbai',
+    coordinates: [19.0760, 72.8777],
+  },
+  {
+    id: 'telangana',
+    name: 'Telangana',
+    type: 'state',
+    capital: 'Hyderabad',
+    coordinates: [17.3850, 78.4867],
+  },
+  {
+    id: 'andhra_pradesh',
+    name: 'Andhra Pradesh',
+    type: 'state',
+    capital: 'Amaravati',
+    coordinates: [16.5062, 80.6480],
+  },
+  {
+    id: 'karnataka',
+    name: 'Karnataka',
+    type: 'state',
+    capital: 'Bengaluru',
+    coordinates: [12.9716, 77.5946],
+  },
+  {
+    id: 'tamil_nadu',
+    name: 'Tamil Nadu',
+    type: 'state',
+    capital: 'Chennai',
+    coordinates: [13.0827, 80.2707],
+  },
+  {
+    id: 'kerala',
+    name: 'Kerala',
+    type: 'state',
+    capital: 'Thiruvananthapuram',
+    coordinates: [8.5241, 76.9366],
+  },
+  {
+    id: 'punjab',
+    name: 'Punjab',
+    type: 'state',
+    capital: 'Chandigarh',
+    coordinates: [30.7333, 76.7794],
+  },
+  {
+    id: 'rajasthan',
+    name: 'Rajasthan',
+    type: 'state',
+    capital: 'Jaipur',
+    coordinates: [26.9124, 75.7873],
+  },
+  {
+    id: 'west_bengal',
+    name: 'West Bengal',
+    type: 'state',
+    capital: 'Kolkata',
+    coordinates: [22.5726, 88.3639],
+  },
+  {
+    id: 'odisha',
+    name: 'Odisha',
+    type: 'state',
+    capital: 'Bhubaneswar',
+    coordinates: [20.2961, 85.8245],
+  }
+];
