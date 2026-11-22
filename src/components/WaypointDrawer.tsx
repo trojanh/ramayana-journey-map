@@ -7,12 +7,11 @@ import {
   Users, 
   Landmark, 
   ChevronRight, 
-  ChevronLeft,
-  Share2,
-  Compass
+  ChevronLeft
 } from 'lucide-react';
 import { Waypoint } from '../types';
 import { getKandaBadgeClass } from '../utils/geoUtils';
+import { AudioNarrationPlayer } from './AudioNarrationPlayer';
 
 interface WaypointDrawerProps {
   waypoint: Waypoint | null;
@@ -72,6 +71,9 @@ export const WaypointDrawer: React.FC<WaypointDrawerProps> = ({
 
       {/* Scrollable Content Body */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {/* Audio Narration Player in Hindi & English */}
+        <AudioNarrationPlayer waypoint={waypoint} />
+
         {/* Title & Key Event */}
         <div className="bg-amber-500/10 border border-amber-500/25 p-3 rounded-xl">
           <div className="text-xs font-semibold text-amber-300 uppercase tracking-wide flex items-center gap-1.5">

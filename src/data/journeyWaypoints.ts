@@ -33,6 +33,16 @@ export const journeyWaypoints: Waypoint[] = [
         meaning: 'The benevolent Lord, compassionate to the humble, revealed Himself for the joy of Kaushalya. The mother was filled with bliss beholding His wondrous, divine form.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'श्री राम का प्राकट्य एवं बाल्यकाल',
+        text: 'पवित्र सरयू नदी के तट पर बसी धर्मनगरी अयोध्या में, सूर्यवंश के प्रतापी राजा दशरथ के यहाँ चैत्र मास की शुक्ल नवमी तिथि को मर्यादा पुरुषोत्तम भगवान श्री राम का प्राकट्य हुआ। तीनों लोकों में आनंद की वर्षा हुई और देवता पुष्प बरसाने लगे। गुरु वशिष्ठ के संरक्षण में चारों भाइयों ने वेदों और दिव्य अस्त्र-शस्त्रों की शिक्षा प्राप्त की।'
+      },
+      english: {
+        title: 'The Divine Advent & Childhood in Ayodhya',
+        text: 'On the sacred banks of the holy Sarayu River, in the glorious ancient capital of Ayodhya, Lord Vishnu manifested as Sri Rama on the ninth day of Chaitra. Celebrated across the three worlds, young Rama and his devoted brothers grew up mastering the sacred Vedas and divine martial sciences under the tutelage of Sage Vashistha.'
+      }
+    },
     historicalSignificance: 'Capital of Kosala; ground zero of the Treta Yuga divine avatara and symbol of righteous kingship (Rama Rajya).',
     presentDayTempleOrSite: 'Shri Ram Janmabhoomi Teerth Kshetra & Kanak Bhavan, Ayodhya',
     travelMode: 'walking',
@@ -61,6 +71,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'Take this sanctified water, my child; let there be no delay. Receive this cluster of mantras—Bala and Atibala.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'महर्षि विश्वामित्र के साथ गमन एवं दीक्षा',
+        text: 'महर्षि विश्वामित्र के यज्ञ की रक्षा के लिए श्री राम और लक्ष्मण जी ने अयोध्या से प्रस्थान किया। सरयू और गंगा जी के पावन संगम पर महर्षि ने दोनों राजकुमारों को बला और अतिबला नामक दिव्य विद्याओं की दीक्षा दी, जिससे उन्हें कभी क्षुधा, तृष्णा या थकावट का अनुभव न हो।'
+      },
+      english: {
+        title: 'Departure with Sage Vishwamitra',
+        text: 'Accompanied by Sage Vishwamitra, princes Rama and Lakshmana stepped beyond the comfort of the palace to safeguard the sacred fire yajnas from demonic disruption. At the confluence of rivers Sarayu and Ganga, Vishwamitra initiated them into the mystical mantras of Bala and Atibala, conferring boundless stamina and immunity from fatigue.'
+      }
+    },
     historicalSignificance: 'Sacred confluence where Lord Shiva burned Kamadeva into ashes; initiation of the princes into divine sciences.',
     presentDayTempleOrSite: 'Bhrigu Ashram, Ballia & Sangameshwar Mahadev',
     travelMode: 'walking',
@@ -87,6 +107,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '15-18',
         text: 'स तेन परमास्त्रेण मानवेन समाहितः । सम्पूर्णं योजनशतं क्षिप्तः सागरसम्प्लवे ॥',
         translation: 'Struck by that supreme Manavastra hurled by Rama, Maricha was thrown a full hundred yojanas away into the roaring sea.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'ताड़का वध एवं सिद्धाश्रम यज्ञ रक्षा',
+        text: 'भयभीत कर देने वाले ताड़का वन में पहुँचकर भगवान श्री राम ने गुरु आज्ञा शिरोधार्य कर दुराचारी ताड़का का एक ही बाण में उद्धार कर दिया। सिद्धाश्रम में विश्वामित्र जी के यज्ञ की रक्षा करते हुए प्रभु ने सुबाहु को मार गिराया और मारीच को अपने बाण से सौ योजन दूर समुद्र पार फेंक दिया।'
+      },
+      english: {
+        title: 'Slaying of Tataka & Defence of the Sacred Yajna',
+        text: 'Entering the sinister groves of Tataka Vana, Rama acted under the sage’s command to liberate the land from terror, vanquishing the demoness Tataka with a single arrow. At Siddhashrama, Rama defended the holy altars, slaying Subahu and hurling the sorcerer Maricha a hundred leagues across the ocean.'
       }
     },
     historicalSignificance: 'The ancient ashram of Lord Vishnu’s Vamana avatara; consecrated ground where Sage Vishwamitra completed his penance.',
@@ -123,6 +153,16 @@ export const journeyWaypoints: Waypoint[] = [
         meaning: 'At the touch of His holy, sorrow-dispelling feet, she manifested in bodily radiance. Gazing upon the protector of devotees, she stood before Him with folded hands.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'अहल्या उद्धार की पावन गाथा',
+        text: 'मिथिला के मार्ग में महर्षि गौतम के तपोवन में प्रभु श्री राम के चरणरज का स्पर्श पाते ही, शापवश पाषाणवत बैठी माता अहल्या का उद्धार हुआ। उनके समस्त संताप मिट गए और वे दिव्य रूप धारण कर भगवान के चरणों में नतमस्तक हो गईं।'
+      },
+      english: {
+        title: 'The Sacred Deliverance of Devi Ahilya',
+        text: 'In the tranquil yet abandoned hermitage of Sage Gautama, the sacred touch of Sri Rama’s lotus feet dispelled the agonizing ages-long curse placed upon Devi Ahilya. Restored to her pristine divine brilliance, she bowed in profound devotion to the supreme redeemer.'
+      }
+    },
     historicalSignificance: 'A cornerstone episode demonstrating the redemptive grace (Kripa) of Sri Rama over karmic retribution.',
     presentDayTempleOrSite: 'Ahilya Sthan Mandir, Ahiyari, Darbhanga, Bihar',
     travelMode: 'walking',
@@ -151,6 +191,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'Having strung the bowstring, the glorious and valiant hero pulled it back fully. The illustrious foremost among men broke the bow in the middle. A monstrous sound erupted like a crashing thunderbolt!'
       }
     },
+    narration: {
+      hindi: {
+        title: 'शिव धनुष भंजन एवं सीता स्वयंवर',
+        text: 'महाराज जनक की सभा में जब कोई भी राजा भगवान शिव के पिनाक धनुष को हिला तक न सका, तब गुरु विश्वामित्र का संकेत पाकर श्री राम ने उस महाधनुष को एक ही हाथ से उठाकर प्रत्यंचा चढ़ाई। धनुष के टूटते ही त्रिभुवन में जय-जयकार गूंज उठी और माता जानकी ने श्री राम के गले में वरमाला डाल दी।'
+      },
+      english: {
+        title: 'Breaking of Shiva’s Bow and Sita Swayamvara',
+        text: 'Before the august royal court of King Janaka, where mighty monarchs could not even move Lord Shiva’s celestial bow Pinaka, Sri Rama effortlessly lifted it upon Vishwamitra’s command. As he strung the bowstring, it broke with a deafening crack, and Devi Sita garlanded Rama amidst the jubilant celebrations of Mithila.'
+      }
+    },
     historicalSignificance: 'Seat of philosopher-king Janaka; holy union of Sri Rama (Narayana) and Sita (Lakshmi).',
     presentDayTempleOrSite: 'Janaki Mandir & Vivah Mandap, Janakpurdham, Nepal',
     travelMode: 'walking',
@@ -177,6 +227,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '17-20',
         text: 'अक्षयं मधुहन्तारं जानामि त्वां सुरेश्वरम् । धनुषोऽस्य परामर्शात् स्वस्ति तेऽस्तु परन्तप ॥',
         translation: 'By your stringing of this bow, I know you to be the imperishable Slayer of Madhu, the Supreme Lord of the Devas. Hail to you, O vanquisher of foes!'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'परशुराम संवाद एवं वैष्णव तेज का मिलन',
+        text: 'अयोध्या लौटते समय भगवान परशुराम ने क्रोध में आकर श्री राम को वैष्णव धनुष पर बाण चढ़ाने की चुनौती दी। श्री राम द्वारा सहजता से धनुष चढ़ाने पर परशुराम जी ने पहचान लिया कि यह साक्षात सर्वव्यापी नारायण हैं, और वे श्रद्धापूर्वक नमन कर महेन्द्र पर्वत पर तपस्या हेतु प्रस्थान कर गए।'
+      },
+      english: {
+        title: 'Encounter with Bhagavan Parashurama',
+        text: 'En route to Ayodhya, the fearsome warrior-sage Parashurama appeared, challenging Rama to string the celestial Vaishnava bow. When Rama drew it with effortless grace, Parashurama recognized the supreme avataric consciousness before him, yielding his mantle and retiring to Mount Mahendra in deep meditation.'
       }
     },
     historicalSignificance: 'The seamless passing of the divine mantle between two incarnations of Lord Vishnu.',
@@ -211,6 +271,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'Though preparing to depart for the wilderness and relinquishing the entire empire, no perturbation of mind could be discerned in him, who transcended all worldly attachment.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'राज्याभिषेक की पूर्व संध्या और वनवास',
+        text: 'अयोध्या में श्री राम के राज्याभिषेक की तैयारियाँ चल रही थीं, परंतु मंथरा की कुटिल मति से प्रभावित होकर रानी कैकेयी ने राजा दशरथ से दो वरदान माँग लिए—भरत को राजगद्दी और राम को चौदह वर्ष का वनवास। पिता के सत्य की रक्षा हेतु श्री राम ने बिना किसी संकोच के वन गमन का निर्णय सहर्ष स्वीकार कर लिया।'
+      },
+      english: {
+        title: 'The Decree of 14-Year Forest Exile',
+        text: 'On the eve of Rama’s coronation as crown prince, Queen Kaikeyi, swayed by the malicious counsel of Manthara, demanded two ancient boons: the crown for her son Bharata and fourteen years of forest exile for Rama. Unshaken by sorrow or anger, Rama serene and smiling embraced exile to safeguard his father’s sacred honor.'
+      }
+    },
     historicalSignificance: 'The supreme demonstration of filial duty, detachment, and adherence to satya and dharma.',
     presentDayTempleOrSite: 'Kopabhavan and Dasharatha Mahal, Ayodhya',
     travelMode: 'walking',
@@ -239,6 +309,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'These citizens are deeply devoted to me. They will not desert me, nor can I live in peace seeing them suffer in the forest.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'तमसा तट पर प्रथम रात्रि और वियोग',
+        text: 'अयोध्या के समस्त नागरिक अश्रु बहाते हुए श्री राम के पीछे-पीछे तमसा नदी के तट तक चले आए। प्रजा के अपार कष्ट को देखकर, रात्रि में जब सब निद्रा में थे, प्रभु श्री राम सुमंत्र जी के साथ चुपचाप आगे बढ़ गए, ताकि प्रजाजनों को वन के कठोर कष्ट न झेलने पड़ें।'
+      },
+      english: {
+        title: 'First Night on the Banks of River Tamasa',
+        text: 'Grief-stricken citizens of Ayodhya followed Rama’s chariot to the Tamasa river, refusing to return. Seeing their unbearable sorrow, Rama quietly departed before dawn while they rested, sparing the people the harsh rigors of forest life and steering his path deeper into the wilderness.'
+      }
+    },
     historicalSignificance: 'First night spent outside the royal capital; shows the tender love between Rama and his subjects.',
     presentDayTempleOrSite: 'Tamasa Ashram & Ramchaura temple, Ayodhya district',
     travelMode: 'walking',
@@ -264,6 +344,16 @@ export const journeyWaypoints: Waypoint[] = [
         dohaOrChaupai: 'Chaupai 100-101',
         text: 'मागी नाव न केवटु आना । कहइ तुम्हार मरमु मैं जाना ॥ चरन कमल रज कहुं सबु कहई । मानुषीकरनि मूरि कछु अहई ॥ पद नख निरखि देवसरि हरषी । सुनि प्रभु बचन प्रेम रस बरषी ॥',
         meaning: 'When the Lord asked for a boat, Kevat hesitated, saying: "I know your secret! Everyone says the dust of your feet is an herb that turns stone into a woman!" After washing His feet, he rowed them across in pure bliss.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'निषादराज मिलन एवं केवट का अनन्य प्रेम',
+        text: 'शृङ्गवेरपुर में बालसखा निषादराज गुह ने श्री राम का भावभीना स्वागत किया। पवित्र गंगा पार कराने के लिए जब नाव माँगी गई, तब भक्त केवट ने प्रभु के चरण धोने की अनोखी हठ की। केवट ने अपने हाथों से प्रभु के चरण धोए और उन्हें भवसागर पार कराने वाले राम को गंगा पार उतारा।'
+      },
+      english: {
+        title: 'Meeting King Guha & Kevat’s Pure Devotion',
+        text: 'At Shringaverapura, Nishada chieftain Guha welcomed Rama with open arms. When seeking to cross the holy Ganga, the humble boatman Kevat playfully insisted on washing Rama’s feet first, fearing the miraculous dust that revived Ahilya might turn his wooden boat into a woman! He rowed the divine family across in pure spiritual ecstasy.'
       }
     },
     historicalSignificance: 'Symbolizes the dissolution of social barriers through pure spiritual devotion (Bhakti).',
@@ -294,6 +384,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'Ten krosas from here, my dear Rama, lies a holy mountain where you may dwell. Revered by great sages, delightful on all sides, it is famed as Chitrakoot, resembling Mount Gandhamadana.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'तीर्थराज प्रयाग एवं महर्षि भारद्वाज आश्रम',
+        text: 'गंगा, यमुना और अदृश्य सरस्वती के पावन संगम पर स्थित तीर्थराज प्रयाग में प्रभु श्री राम ने महर्षि भारद्वाज के दर्शन किए। महर्षि के आश्रम में संतों ने प्रभु का सत्कार किया और भारद्वाज जी ने उन्हें शांत और रमणीक चित्रकूट पर्वत पर कुटी बनाकर रहने का परामर्श दिया।'
+      },
+      english: {
+        title: 'Pilgrimage to Triveni Sangam & Bharadwaja Ashram',
+        text: 'At the sacred confluence of Ganga, Yamuna, and Saraswati, Rama visited the sprawling hermitage of Maharshi Bharadwaja in Prayaga. Delighted by the royal exiles’ virtue, Sage Bharadwaja guided Rama toward the tranquil, forested slopes of Mount Chitrakoot as the ideal haven for their exile.'
+      }
+    },
     historicalSignificance: 'The holiest confluence (Triveni) of Sanatana Dharma; Vedic university of Sage Bharadwaja.',
     presentDayTempleOrSite: 'Bharadwaja Ashram & Triveni Sangam, Prayagraj',
     travelMode: 'walking',
@@ -322,6 +422,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'Rejoicing, Janaki worshipped Kalindi as they crossed over, while the elder brother (Rama) quickly made their crossing across the waters.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'कालिन्दी तरण एवं श्यामावट दर्शन',
+        text: 'लक्ष्मण जी ने बांस और काष्ठ की एक सुदृढ़ बेड़ी (नाव) तैयार की, जिस पर बैठकर माता सीता और श्री राम ने श्यामल यमुना जी को पार किया। मध्य धारा में जानकी जी ने यमुना मैया से सकुशल वनवास पूर्ण होने की प्रार्थना की और दक्षिण तट पर विशाल श्यामावट के दर्शन किए।'
+      },
+      english: {
+        title: 'Crossing the Azure Waters of Yamuna',
+        text: 'With ingenuity and skill, Lakshmana crafted a sturdy raft of bamboo and wild reeds to ferry Sita and Rama across the swirling currents of Yamuna. Midway across the river, Devi Sita offered heartfelt prayers for Rama’s triumphant return, stepping ashore beside the colossal Shyamavata tree.'
+      }
+    },
     historicalSignificance: 'Marks the transition from Gangetic plains into the rugged Vindhya hill country.',
     presentDayTempleOrSite: 'Shyamavata Teerth & Yamuna Ghats, Banda/Chitrakoot district',
     travelMode: 'boat',
@@ -348,6 +458,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '35',
         text: 'ऐणेयं मांसमाहृत्य शालां संप्रोक्ष्य राघवः । चकार बलिमुद्दिष्टं सर्वभूतसमन्वितम् ॥',
         translation: 'Performing the purificatory consecrations for the cottage, Raghava offered propitiatory offerings to all elemental spirits.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'चित्रकूट में पर्णकुटी और महर्षि वाल्मीकि संवाद',
+        text: 'मन्दाकिनी नदी के रमणीय तट पर कामदगिरि के निकट लक्ष्मण जी ने एक सुंदर पर्णकुटी का निर्माण किया। यहाँ श्री राम की भेंट महर्षि वाल्मीकि से हुई। वाल्मीकि जी ने कहा कि जो राग-द्वेष से मुक्त हैं, उनका हृदय ही आपका सच्चा निवास है। प्रभु ने यहाँ सुखपूर्वक वनवास के प्रारंभिक वर्ष बिताए।'
+      },
+      english: {
+        title: 'The Forest Hermitage of Mount Chitrakoot',
+        text: 'Nestled beside the tranquil Mandakini River, Lakshmana built a sacred leaf-thatched hermitage on Mount Chitrakoot. Here Rama met Sage Valmiki, who beautifully proclaimed that the unblemished heart of a pure devotee is the Lord’s true abode.'
       }
     },
     historicalSignificance: 'Where Rama spent nearly twelve serene years of exile; celebrated in Tulsidas’s poetry.',
@@ -384,6 +504,16 @@ export const journeyWaypoints: Waypoint[] = [
         meaning: 'Bharata received the exquisite, peerless sandals, beaming with the lustrous aura of the Lord’s toenails, holding them reverently on his head.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'भरत मिलाप एवं चरण पादुका अर्पण',
+        text: 'अयोध्या की सेना और तीनों माताओं के साथ भरत चित्रकूट पहुँचे और प्रभु श्री राम से अयोध्या लौटने का अनुनय किया। भ्रातृ-प्रेम का यह मिलन पाषाणों को भी पिघलाने वाला था। पितृ-वचन की रक्षा के लिए राम अडिग रहे, तब भरत जी ने प्रभु की चरण पादुकाएँ अपने शीश पर धारण कीं और नन्दिग्राम से पादुका-शासन का संकल्प लिया।'
+      },
+      english: {
+        title: 'The Tears of Bharata Milap and the Sacred Sandals',
+        text: 'Refusing to usurp the throne, Bharata marched to Chitrakoot with the royal queens and sages, pleading with Rama to return. In a scene of unparalleled brotherly love, Rama remained steadfast in upholding truth, bestowing his sacred wooden sandals upon Bharata, who ruled from Nandigram as Rama’s humble regent.'
+      }
+    },
     historicalSignificance: 'The ultimate symbol of fraternal selfless love (Bhratri-Prema) in world literature.',
     presentDayTempleOrSite: 'Bharata Milap Mandir and Charan Paduka Sthal, Chitrakoot',
     travelMode: 'walking',
@@ -414,6 +544,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '1-3',
         text: 'प्रविश्य तु महारण्यं दण्डकारण्यमात्मवान् । रामो ददर्श दुर्धर्षस्तापसाश्रममण्डलम् ॥',
         translation: 'Entering the great wilderness known as Dandakaranya, the self-controlled, invincible Rama beheld a circular cluster of sacred hermitages of ascetics.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'अत्रि-अनसूया आशीर्वाद एवं दण्डकारण्य प्रवेश',
+        text: 'चित्रकूट से आगे बढ़कर श्री राम, सीता और लक्ष्मण महर्षि अत्रि और सती अनसूया के पावन आश्रम पहुँचे। माता अनसूया ने जानकी जी को पतिव्रत धर्म की महिमा बताते हुए दिव्य वस्त्र और आभूषण प्रदान किए, जो कभी मलिन नहीं होते। यहीं से प्रभु ने घनघोर दण्डकारण्य वन में प्रवेश किया।'
+      },
+      english: {
+        title: 'Blessings of Sage Atri & Sati Anasuya',
+        text: 'Heading south into deeper wilderness, the exiles reached the sacred abode of Sage Atri and Sati Anasuya. Mata Anasuya blessed Devi Sita with celestial silks and fragrant unguents that would never wither or fade, consecrating their journey into the deep primeval forests of Dandakaranya.'
       }
     },
     historicalSignificance: 'The gateway into the ten-year wandering through the Deccan wilderness.',
@@ -450,6 +590,16 @@ export const journeyWaypoints: Waypoint[] = [
         meaning: 'Raising His mighty arm, the Lord took a solemn oath: "I will make this earth devoid of demons!" He visited the hermitage of every sage, bestowing fearless peace.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'अस्थि-समूह दर्शन एवं श्री राम की भीषण प्रतिज्ञा',
+        text: 'दण्डकारण्य में मुनियों के आश्रमों के निकट राक्षसों द्वारा खाए गए ऋषियों की हड्डियों के विशाल ढेर देखकर श्री राम का हृदय करुणा और क्रोध से भर गया। प्रभु ने अपनी दाहिनी भुजा उठाकर यह अमर प्रतिज्ञा की: "निसिचर हीन करहुं महि"—अर्थात मैं इस पृथ्वी को निशाचरों से मुक्त कर दूँगा।'
+      },
+      english: {
+        title: 'The Solemn Oath: Ridding the Earth of Demonic Terror',
+        text: 'Beholding mounds of bleached bones belonging to holy ascetics devoured by marauding Rakshasas, Rama raised his mighty right arm and took a solemn cosmic oath: to cleanse the earth of demonic oppression and restore peace to the hermitages of the righteous.'
+      }
+    },
     historicalSignificance: 'The moral and martial turning point of the exile from peaceful seclusion to active divine justice.',
     presentDayTempleOrSite: 'Sharabhanga Ashram and Sutikshna Ashram, Satna district, MP',
     travelMode: 'walking',
@@ -476,6 +626,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '32-34',
         text: 'इदं दिव्यं महच्चापं हेमपृष्ठं दुरासदम् । वैष्णवं पुरुषव्याघ्र निर्मितं विश्वकर्मणा ॥ अमोघाः सूर्यसंकाशाः शराश्चाशीविषोपमाः ।',
         translation: 'This is the divine, formidable Vaishnava bow, coated in gold, crafted by Vishwakarma, O tiger among men! And here are infallible, sun-radiant arrows like venomous serpents.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'अगस्त्य ऋषि से दिव्य वैष्णव धनुष की प्राप्ति',
+        text: 'विन्ध्य पर्वत को झुकाने वाले महर्षि अगस्त्य के पावन आश्रम में प्रभु श्री राम का भव्य स्वागत हुआ। महर्षि ने भगवान विष्णु का विश्वकर्मा-निर्मित दिव्य धनुष, कभी रिक्त न होने वाले दो तूणीर और अमोघ बाण श्री राम को सौंपे और उन्हें गोदावरी तट पर पंचवटी में निवास करने का निर्देश दिया।'
+      },
+      english: {
+        title: 'Sage Agastya and Bestowal of Celestial Weapons',
+        text: 'At the ashram of Sage Agastya, conqueror of mountains and oceans, Rama was presented with Lord Vishnu’s celestial bow, inexhaustible quivers, and luminous armor crafted by Vishwakarma. Foreseeing the battles ahead, Agastya directed Rama to establish a cottage at Panchavati on the banks of Godavari.'
       }
     },
     historicalSignificance: 'Arming the warrior avatar for the cataclysmic conflict awaiting him.',
@@ -506,6 +666,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'In that monumental battle at Janasthana, the descendant of Raghu swiftly annihilated the fourteen thousand Rakshasas.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'पंचवटी में शूर्पणखा प्रसंग और खर-दूषण संहार',
+        text: 'गोदावरी तट पर पंचवटी में निवास के दौरान रावण की बहन शूर्पणखा ने सीता जी पर आक्रमण करने का दुस्साहस किया। लक्ष्मण जी ने उसके नाक और कान काट दिए। प्रतिशोध लेने आए खर और दूषण के चौदह हज़ार राक्षसों की सेना को अकेले श्री राम ने अपने गांडीव-समान धनुष से धूल चटा दी।'
+      },
+      english: {
+        title: 'Panchavati: Disfiguring of Shurpanakha and Vanquishing 14,000 Demons',
+        text: 'Beside the sacred Godavari at Panchavati, the demoness Shurpanakha attempted to harm Sita and was swiftly disfigured by Lakshmana. When her brothers Khara and Dushana retaliated with a terrifying army of fourteen thousand Rakshasas, Rama alone routed the entire demonic legion in a matter of moments.'
+      }
+    },
     historicalSignificance: 'The trigger that spurred Ravana to retaliate through deceit.',
     presentDayTempleOrSite: 'Kalaram Temple, Sita Gumpha, and Ramkund, Panchavati, Nashik',
     travelMode: 'walking',
@@ -532,6 +702,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '16-17',
         text: 'जग्राह रावणः सीतां बुधः खे रोहिणीमिव । वामेन सीतां पद्माक्षीं मूर्धजेषु करेण सः ॥',
         translation: 'Ravana seized Sita as the malefic planet Mars seizes Rohini in the heavens; with his left hand he grasped lotus-eyed Sita by her locks, and with his right by her waist.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'स्वर्ण मृग छल और माता जानकी का हरण',
+        text: 'मारीच ने स्वर्ण मृग का कपट रूप धारण कर श्री राम को दूर ले गया। लक्ष्मण जी के जाते ही लंकेश रावण संन्यासी का वेश धरकर आया और छलपूर्वक माता सीता का हरण कर दक्षिण दिशा में आकाश मार्ग से ले उड़ा। संपूर्ण प्रकृति इस दारुण विलाप से कांप उठी।'
+      },
+      english: {
+        title: 'The Golden Deer Illusion and Abduction of Sita',
+        text: 'Through the illusion of the golden deer Maricha, Ravana lured Rama and Lakshmana into the deep woods. Disguised as a wandering mendicant, the demon emperor deceived Sita across the threshold, seizing her and fleeing southward across the heavens in his aerial chariot.'
       }
     },
     historicalSignificance: 'The central inciting catastrophe of the epic that set the cosmic war in motion.',
@@ -566,6 +746,16 @@ export const journeyWaypoints: Waypoint[] = [
         dohaOrChaupai: 'Chaupai 32',
         text: 'परम बिचित्र रूप धरि गीध चला बैकुंठ । राम कृपा तें पावा सो गति जो दुर्लभ मुनिन्हहिं संत ॥',
         meaning: 'Assuming a sublime divine form, the vulture departed for Vaikuntha, attaining by Rama’s grace that transcendent state which even realized sages strive for.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'वीर जटायु का बलिदान एवं परम मोक्ष',
+        text: 'आकाश में सीता जी की पुकार सुनकर वृद्ध गीधराज जटायु ने रावण के रथ को ध्वस्त कर भीषण युद्ध किया। रावण ने तलवार से उनके पंख काट दिए। मरणासन्न जटायु ने श्री राम को रावण द्वारा दक्षिण दिशा में ले जाने का समाचार दिया। प्रभु ने पिता समान जटायु का अंतिम संस्कार कर उन्हें सीधे बैकुंठ धाम प्रदान किया।'
+      },
+      english: {
+        title: 'Jatayu’s Supreme Valor and Eternal Salvation',
+        text: 'Hearing Sita’s cries in the sky, the aged vulture king Jatayu fought valiantly against Ravana, shattering his chariot before his wings were severed. Clinging to life, Jatayu informed Rama of Sita’s abduction southward. Weeping in gratitude, Rama performed his funeral rites, granting him supreme liberation in Vaikuntha.'
       }
     },
     historicalSignificance: 'Exemplifies supreme devotion, courage, and unconditional grace awarded to bird and beast alike.',
@@ -606,6 +796,16 @@ export const journeyWaypoints: Waypoint[] = [
         meaning: 'The Lord said: "Listen, noble lady! I recognize only one relationship—that of pure devotion. Devoid of devotion, a man with status, wealth, and power is like a cloud without rain."'
       }
     },
+    narration: {
+      hindi: {
+        title: 'पम्पा सरोवर एवं माता शबरी की अनन्य भक्ति',
+        text: 'पवित्र पम्पा सरोवर के तट पर मतंग ऋषि की शिष्या वृद्धा शबरी वर्षों से प्रभु श्री राम की प्रतीक्षा कर रही थी। शबरी ने प्रेम से चख-चखकर मीठे बेर प्रभु को अर्पित किए। श्री राम ने नवधा भक्ति का उपदेश देते हुए कहा कि वे केवल प्रेम का नाता मानते हैं। शबरी ने प्रभु को सुग्रीव से मित्रता करने का मार्ग दिखाया।'
+      },
+      english: {
+        title: 'The Sublime Devotion of Mother Shabari',
+        text: 'Upon reaching the sacred lotus-filled waters of Lake Pampa, Rama visited the humble hermitage of Mother Shabari, who had waited a lifetime for his coming. Tasting wild berries to offer only the sweetest to her Lord, Rama accepted them with profound joy, teaching that pure love transcends all social boundaries.'
+      }
+    },
     historicalSignificance: 'One of the four sacred lakes (Sarovars) of Hindu tradition; apex of pure Bhakti.',
     presentDayTempleOrSite: 'Shabari Cave & Pampa Sarovar, Anegundi, Koppal/Ballari, Karnataka',
     travelMode: 'walking',
@@ -632,6 +832,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '16-17',
         text: 'ततोऽग्निं दीप्यमानं तौ चक्रतुश्च प्रदक्षिणम् । सुग्रीवो राघवश्चैव वयस्यत्वमुपागतौ ॥',
         translation: 'Then Sugriva and Raghava circumambulated the blazing fire and entered into sacred bond of sworn friendship.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'हनुमान जी से प्रथम भेंट एवं सुग्रीव से अग्नि-साक्षी मित्रता',
+        text: 'ऋष्यमूक पर्वत पर विप्र रूप धरकर आए पवनपुत्र हनुमान जी की मधुर वाणी सुनकर श्री राम मुग्ध हो गए। हनुमान जी ने प्रभु को अपने कंधों पर बिठाकर सुग्रीव से मिलाया। प्रज्वलित अग्नि के सम्मुख श्री राम और सुग्रीव ने एक-दूसरे के संकट में साथ निभाने की अटूट प्रतिज्ञा की।'
+      },
+      english: {
+        title: 'Meeting Hanuman and the Sacred Alliance with Sugriva',
+        text: 'On the crags of Rishyamukha Hill, Hanuman approached disguised as a scholarly ascetic. Enchanted by Hanuman’s eloquence, Rama revealed his identity. Circumambulating the consecrated sacred fire, Rama and the exiled Vanara King Sugriva forged an eternal friendship to overcome Vali and find Sita.'
       }
     },
     historicalSignificance: 'The birth of the immortal master-servant devotion between Sri Rama and Hanuman.',
@@ -662,6 +872,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'Behold this reason for which you were struck down by Me: forsaking eternal dharma, you cohabited with the wedded wife of your own living brother!'
       }
     },
+    narration: {
+      hindi: {
+        title: 'वालि वध एवं किष्किन्धा का राजतिलक',
+        text: 'श्री राम ने अधर्म के निवारण हेतु वालि का एक ही बाण से संहार किया और सुग्रीव का किष्किन्धा के राजा के रूप में राज्याभिषेक करवाया। वर्षा ऋतु के चार महीने प्रभु ने माल्यवान/प्रवर्षण पर्वत पर तपस्या में बिताए, जिसके पश्चात सुग्रीव ने चारों दिशाओं में वानर सेना को माता जानकी की खोज के लिए रवाना किया।'
+      },
+      english: {
+        title: 'Vanquishing Vali and Kishkindha’s Rebirth',
+        text: 'Intervening in the fierce duel between brothers, Rama struck down Vali to uphold cosmic dharma, crowning Sugriva as King of Kishkindha. During the four monsoon months on Mount Prasravana, Rama meditated until Sugriva assembled millions of Vanaras to search every corner of the earth.'
+      }
+    },
     historicalSignificance: 'Restoration of righteous rule in Kishkindha; mobilization of millions of Vanara searchers across the four corners of the world.',
     presentDayTempleOrSite: 'Chintamani Temple, Tara’s Cave, and Prasravana / Malyavanta Hill, Hampi',
     travelMode: 'walking',
@@ -688,6 +908,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '1-3',
         text: 'उत्तिष्ठ हरिशार्दूल लङ्घयस्व महोदधिम् । पराक्रमो हि ते वीर सर्वेषामधिको भुवि ॥',
         translation: 'Rise, O tiger among monkeys! Leap across the mighty ocean! For your valor and strength, O hero, surpass all beings upon this earth!'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'सम्पाति की दिव्य दृष्टि और हनुमान जी का पौरुष जागरण',
+        text: 'दक्षिण समुद्र तट पर पहुंचे निराश वानरों को जटायु के भ्राता सम्पाति ने बताया कि माता सीता सौ योजन दूर लंका के अशोक वाटिका में सुरक्षित हैं। विशाल महासागर को लांघने का संकट जब सम्मुख आया, तब रीछराज जाम्बवन्त ने पवनपुत्र हनुमान जी को उनके असीम बल और शक्ति का स्मरण कराया।'
+      },
+      english: {
+        title: 'Sampati’s Vision and Awakening of Hanuman’s Might',
+        text: 'Reaching the vast southern ocean, the Vanara search party learned from Jatayu’s brother Sampati that Sita was imprisoned a hundred leagues across the sea in Lanka. As the warriors wondered who could cross the tempestuous ocean, wise Jambavan awakened Hanuman’s dormant cosmic strength.'
       }
     },
     historicalSignificance: 'The transition from the continental search to the ocean crossing.',
@@ -728,6 +958,16 @@ export const journeyWaypoints: Waypoint[] = [
         meaning: 'Turning and wheeling across every tower, he reduced all of Lanka into ashes, and then leaped joyously into the ocean to extinguish his tail.'
       }
     },
+    narration: {
+      hindi: {
+        title: 'समुद्र लङ्घन, मुद्रिका अर्पण एवं लंका दहन',
+        text: 'विराट रूप धारण कर हनुमान जी ने एक छलांग में समुद्र पार किया। अशोक वाटिका में माता जानकी के दर्शन कर प्रभु श्री राम की मुद्रिका अर्पित की और चूड़ामणि प्राप्त की। रावण की सभा में निर्भीक संदेश देकर, जब उनकी पूंछ में आग लगाई गई, तब मारुतिनंदन ने समूची स्वर्णमयी लंका को भस्म कर अधर्म का दर्प चूर्ण कर दिया।'
+      },
+      english: {
+        title: 'Hanuman’s Epic Flight, Ashoka Vatika and the Burning of Lanka',
+        text: 'Assuming a colossal form, Hanuman leaped across the ocean, overcoming sea demons to enter fortress Lanka. Finding Sita in Ashoka Vatika, he delivered Rama’s signet ring, restoring her hope. Captured after confronting Ravana, Hanuman used his ignited tail to set golden Lanka ablaze before returning triumphant to Rama.'
+      }
+    },
     historicalSignificance: 'The core devotional and spiritual triumph of the entire epic; symbol of hope overcoming darkness.',
     presentDayTempleOrSite: 'Seetha Amman Temple (Ashoka Vatika), Hakgala Botanical Garden, Nuwara Eliya, Sri Lanka',
     travelMode: 'ocean_leap',
@@ -760,6 +1000,16 @@ export const journeyWaypoints: Waypoint[] = [
         translation: 'Whoever surrenders unto Me even once, saying "I am Yours", to him I grant fearlessness against all beings—this is My eternal vow!'
       }
     },
+    narration: {
+      hindi: {
+        title: 'विभीषण शरणागति एवं राम सेतु का निर्माण',
+        text: 'समुद्र तट पर रावण के त्यागे भाई विभीषण को श्री राम ने अभयदान देकर अपनी शरण में लिया। समुद्र द्वारा मार्ग देने पर नल और नील के निर्देशन में वानरों ने "राम" नाम अंकित पत्थरों से पांच दिनों में महासागर पर अद्भुत सेतु बांध दिया, जिस पर चलकर श्रीराम की सेना लंका पहुँची।'
+      },
+      english: {
+        title: 'The Shelter of Vibhishana and Construction of Ram Setu',
+        text: 'On the southern shore, Ravana’s righteous brother Vibhishana surrendered at Rama’s feet and was consecrated future king. Under master architects Nala and Nila, the Vanaras carved the holy name of Rama upon massive boulders that miraculously floated, completing the hundred-league bridge to Lanka in five days.'
+      }
+    },
     historicalSignificance: 'The legendary bridge linking the mainland with Lanka; establishment of the Ramanathaswamy Jyotirlinga.',
     presentDayTempleOrSite: 'Ramanathaswamy Temple & Ram Setu viewpoint, Dhanushkodi, Rameshwaram',
     travelMode: 'bridge',
@@ -786,6 +1036,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '18-20',
         text: 'स विसृष्टो बलीयस्त्वं गत्वा बाणः सुदारुणः । बिभेद हृदयं तस्य रावणस्य दुरात्मनः ॥',
         translation: 'Released by Rama, that terrifying and all-powerful arrow sped through the air and pierced the heart of the wicked-souled Ravana.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'महाभारत-तुल्य महायुद्ध, रावण वध एवं अग्नि परीक्षा',
+        text: 'लंका की रणभूमि में महाबली कुम्भकर्ण और मेघनाद का अंत हुआ। अंततः भगवान श्री राम ने महर्षि अगस्त्य द्वारा उपदेशित आदित्य हृदय स्तोत्र का पाठ कर, ब्रह्मास्त्र के अचूक प्रहार से दशानन रावण का वध किया। तीनों लोकों को अधर्म से मुक्ति मिली और अग्निदेव ने स्वयं प्रकट होकर माता जानकी के पातिव्रत्य की दिव्यता प्रमाणित की।'
+      },
+      english: {
+        title: 'The Great War, Vanquishing Ravana and Trial by Fire',
+        text: 'In a battle that shook the heavens, Kumbhakarna and Meghanada fell. Invoking the sun god through the Aditya Hridaya Stotram, Rama unleashed the all-powerful Brahmastra, slaying Ravana and ending an era of darkness. In the presence of all the gods, Agni Deva himself emerged from sacred fire to testify to Sita’s absolute purity.'
       }
     },
     historicalSignificance: 'The ultimate triumph of Satya and Dharma over arrogance and adharma; restoration of universal cosmic order.',
@@ -820,6 +1080,16 @@ export const journeyWaypoints: Waypoint[] = [
         dohaOrChaupai: 'Chaupai 12',
         text: 'राम राज बैठें त्रैलोका । हरषित भए गए सब सोका ॥ दैहिक दैविक भौतिक तापा । राम राज नहिं काहुहि ब्यापा ॥',
         meaning: 'When Rama took His seat upon the throne, all three worlds rejoiced and every sorrow vanished. In Rama Rajya, none suffered from physical, spiritual, or elemental afflictions.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'पुष्पक विमान से अयोध्या वापसी एवं भव्य राज्याभिषेक',
+        text: 'दिव्य पुष्पक विमान में बैठकर प्रभु श्री राम माता सीता और वानर-वीरों सहित अयोध्या लौटे। नन्दिग्राम में भरत जी से अश्रुपूर्ण मिलन हुआ। दीपों की पंक्तियों से सजी अयोध्या में गुरु वशिष्ठ ने श्री राम का भव्य राज्याभिषेक किया और समूची पृथ्वी पर न्याय, सत्य और सुख का "राम राज्य" स्थापित हुआ।'
+      },
+      english: {
+        title: 'Aerial Return on Pushpaka Vimana and Grand Coronation',
+        text: 'Aboard the celestial flying chariot Pushpaka Vimana, Rama returned northward over the forests, retracing every milestone with Sita. Welcomed with tears of joy by Bharata at Nandigram and greeted by millions of illuminated lamps across Ayodhya, Sri Rama was coronated Emperor of Bharata Varsha, inaugurating the golden age of Rama Rajya.'
       }
     },
     historicalSignificance: 'The realization of the golden ideal of governance—Rama Rajya—where justice, peace, and abundance flourished.',
@@ -859,6 +1129,16 @@ export const journeyWaypoints: Waypoint[] = [
         shloka: '10-12',
         text: 'ततो विष्णुर्महातेजाः सर्वैः सह महात्मभिः । जगाम सरयूतीरं देवैरभिनुतस्तदा ॥',
         translation: 'Then Vishnu, the supreme effulgence, accompanied by all the noble souls, entered the holy waters of Sarayu praised by all the celestial Devas, returning to His eternal abode.'
+      }
+    },
+    narration: {
+      hindi: {
+        title: 'उत्तरकाण्ड: लव-कुश गान, सीता का भू-प्रवेश एवं सरयू महाप्रस्थान',
+        text: 'महर्षि वाल्मीकि के आश्रम में लव और कुश ने रामायण का मधुर गान सीखा। अश्वमेध यज्ञ में माता जानकी ने अपनी सत्यनिष्ठा सिद्ध करते हुए धरती माँ की गोद में समा जाने की प्रार्थना की और माँ धरणी उन्हें सिंहासन पर बैठाकर पाताल ले गईं। अंत में अवतार कार्य पूर्ण होने पर प्रभु श्री राम समस्त अयोध्यावासियों सहित सरयू नदी में प्रवेश कर अपने परम वैकुंठ धाम लौट गए।'
+      },
+      english: {
+        title: 'The Sacred Finale: Lava-Kusha, Sita’s Ascent and Sarayu Mahaprasthana',
+        text: 'At Sage Valmiki’s ashram, Sita raised the twin princes Lava and Kusha, who moved the assembly to tears singing the Ramayana. To affirm her eternal purity, Sita merged into the welcoming embrace of Mother Earth. Having fulfilled the divine purpose of the Treta Yuga, Sri Rama walked into the holy Sarayu River, ascending to eternal Vaikuntha.'
       }
     },
     historicalSignificance: 'The philosophical and scriptural culmination of the Ramayana; eternal lesson of dharma, sacrifice, and the soul’s reunion with the divine.',

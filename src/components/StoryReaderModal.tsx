@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { X, BookOpen, ChevronRight, ChevronLeft, MapPin, Search } from 'lucide-react';
-import { Waypoint, KandaType } from '../types';
+import { X, BookOpen, ChevronRight, ChevronLeft, MapPin } from 'lucide-react';
+import { Waypoint } from '../types';
 import { getKandaBadgeClass } from '../utils/geoUtils';
+import { AudioNarrationPlayer } from './AudioNarrationPlayer';
 
 interface StoryReaderModalProps {
   isOpen: boolean;
@@ -16,7 +17,6 @@ export const StoryReaderModal: React.FC<StoryReaderModalProps> = ({
   waypoints,
   onSelectWaypointOnMap,
 }) => {
-  const [selectedKanda, setSelectedKanda] = useState<string | null>(null);
   const [readingIndex, setReadingIndex] = useState<number>(0);
 
   if (!isOpen) return null;
@@ -118,6 +118,9 @@ export const StoryReaderModal: React.FC<StoryReaderModalProps> = ({
                   <MapPin size={14} /> Locate on Map
                 </button>
               </div>
+
+              {/* Audio Narration in Hindi & English */}
+              <AudioNarrationPlayer waypoint={currentWp} />
 
               {/* Modern Geography */}
               <div className="bg-slate-900/60 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 flex items-center gap-2">

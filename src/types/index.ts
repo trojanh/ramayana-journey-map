@@ -23,6 +23,17 @@ export interface ScriptureCitation {
   };
 }
 
+export interface AudioNarration {
+  hindi: {
+    title: string;
+    text: string;
+  };
+  english: {
+    title: string;
+    text: string;
+  };
+}
+
 export interface Waypoint {
   id: number;
   order: number;
@@ -38,6 +49,7 @@ export interface Waypoint {
   charactersInvolved: string[];
   keyEvent: string;
   scripture: ScriptureCitation;
+  narration: AudioNarration;
   historicalSignificance: string;
   presentDayTempleOrSite?: string;
   travelMode: 'walking' | 'boat' | 'air_divine' | 'army_march' | 'ocean_leap';

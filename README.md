@@ -36,7 +36,11 @@ An interactive, high-fidelity cartography and narrative web application visualiz
   * **Valmiki Ramayana**: Sanskrit Shlokas in Devanagari with English translations and specific Sarga citations.
   * **Tulsidas's Ramcharitmanas**: Awadhi Chaupais and Dohas with Hindi/English meanings.
 
-### 4. Interactive Tools
+### 4. Audio Narrations & Interactive Tools
+* **Bilingual Audio Narrations (Hindi & English)**:
+  * Expressive, devotional narrations for all 28 milestones in both **Hindi** (*हिंदी स्वर कथा*) and **English**.
+  * Integrated **Audio Narration Player** with real-time waveform visualizers, Play/Pause/Resume, language toggle (`हिन्दी` / `English`), and speed controls (`0.85x`, `1.0x`, `1.2x`).
+  * Available across both the **Waypoint Drawer** and the **Epic Chronicle Book Modal**.
 * **Auto-Tour / Playback Mode**: Step sequentially through the epic journey with smooth camera fly-to transitions.
 * **Timeline Scrubber**: Jump between milestones or filter by Kanda.
 * **Comprehensive Search**: Search by ancient realm, modern city, character name, or event.
